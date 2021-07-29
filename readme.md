@@ -3,20 +3,24 @@
 An app using sequelize and express.js to create databases and GET, POST, PUT and DELETE api requests for an e-commerce site
 
 
-## Video Walkthrough
+# Video Walkthrough
+
+This video shows how to create databases, seed the data, run the server and then make GET, POST, PUT and DELETE requests for tags, catergories and products
+
+
 Youtube: https://youtu.be/INxZSH0aVEk   (best way to view app walkthrough)
 
 
 Google Drive: https://drive.google.com/file/d/19pTz_Jtd2C9PLa36ZAFfZlcQq9SL17Vz/view
 
 
-## Technology Used
+# Technology Used
 * MySQL 
 * Sequelize
 * Express.js
 
 
-## App usage
+# App usage
 Install all needed packages 
 ```
 npm i mysql12
