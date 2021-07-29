@@ -40,7 +40,7 @@ npm start
 ```
 
 
-## App Walkthrough
+## App Walkthrough Gifs
 
 GET request for getting all products, categories and tags
 
