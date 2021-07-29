@@ -1,6 +1,6 @@
 # E-Commerce App
 
-An app using Sequelize and Express.js to build back end databases and API routes for an e-commerce site.
+An app using Sequelize and Express.js to build back end databases and API requests for an e-commerce site.
 
 
 ## Technology Used
@@ -53,3 +53,5 @@ POST, PUT, and DELETE requests for products
 
 
 POST, PUT, and DELETE requets for tags
+
+![tags](./assets/tags.gif)
