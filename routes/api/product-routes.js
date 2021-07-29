@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
       ],
     });
     res.status(200).json(productData);
-    
+
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
@@ -42,21 +42,21 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Tag,
-          attributes: ['category_name','id', 'tag_name'],
+          attributes: ['category_name', 'id', 'tag_name'],
         },
       ],
-   });
-//if there is no product by id send 404 error message
-if (!productData) {
-  res.status(404).json({ message: 'There is no product with that id'});
-  return;
-}
+    });
+    //if there is no product by id send 404 error message
+    if (!productData) {
+      res.status(404).json({ message: 'There is no product with that id' });
+      return;
+    }
     res.status(200).json(productData);
-    
+
   } catch (error) {
     console.log(error);
     res.status(500).json(error);
-    
+
   }
 });
 
@@ -71,13 +71,6 @@ router.post('/', (req, res) => {
     }
   */
   Product.create(req.body)
-  //{
-   // product_name: req.body.product_name,
-   // price: req.body.price,
-   // stock: req.body.stock,
-   // category_id: req.body.category_id,
-   // tagIds: req.body.tag_id
-  //})
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -150,9 +143,12 @@ router.delete('/:id', async (req, res) => {
       },
     });
     //If no product with that id send error
-    if(!productData) {
-      res.status(404).json({ message: 'There is no product found with that id'});
+    if (!productData) {
+      res.status(404).json({ message: 'There is no product found with that id' });
     }
+
+    res.status(200).json(productData);
+
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

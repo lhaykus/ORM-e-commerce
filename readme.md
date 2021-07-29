@@ -53,6 +53,8 @@ POST, PUT and DELETE request for categories
 
 POST, PUT, and DELETE requests for products
 
+![products](./assets/products.gif)
+
 
 POST, PUT, and DELETE requets for tags
 
