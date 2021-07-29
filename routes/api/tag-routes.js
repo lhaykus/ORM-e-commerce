@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
  try {
    const tagData = await Tag.create({
-     tag_name: req.body.tag_name,
+     tag_name: req.body.tag_name
    });
    res.status(200).json(tagData);
    
@@ -73,7 +73,7 @@ router.put('/:id', async (req, res) => {
   try {
     const tagData = await Tag.update(req.body, {
       where: {
-        id: req.params.id,
+        id: req.params.id
       },
     });
     //If no tag has that id send 404 error message

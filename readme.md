@@ -37,9 +37,13 @@ npm start
 
 GET request for getting all products, categories and tags
 
+![getrequests](./assets/getgif.gif)
+
 
 
 GET request to get one product, category, and tag using a specific ID
+
+![idgetrequest](./assets/id.gif)
 
 
 POST, PUT and DELETE request for categories
