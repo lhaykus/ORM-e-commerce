@@ -55,6 +55,7 @@ router.get('/:id', async (req, res) => {
 //CREATE a category
 router.post('/', async (req, res) => {
   try {
+    //Creating new category and making category_name equal to input
     const categoryData = await Category.create({
       category_name: req.body.category_name
     });
@@ -91,7 +92,7 @@ router.put('/:id', async (req, res) => {
 
 //DELETE a catergory by id
 router.delete('/:id', async (req, res) => {
-  //Delete category where the id the id
+  //Delete category where the id is equal to the id given
   try {
     const categoryData = await Category.destroy({
       where: {

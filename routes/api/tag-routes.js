@@ -56,6 +56,7 @@ router.get('/:id', async (req, res) => {
 //CREATE new tag
 router.post('/', async (req, res) => {
  try {
+   //Creating new tag and making tag_name equal to input
    const tagData = await Tag.create({
      tag_name: req.body.tag_name
    });
