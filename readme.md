@@ -48,6 +48,8 @@ GET request to get one product, category, and tag using a specific ID
 
 POST, PUT and DELETE request for categories
 
+![categories](./assets/categories.gif)
+
 
 POST, PUT, and DELETE requests for products
 

@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Product,
-          attributes: ['product_name'],
+          attributes: ['product_name', 'price', 'stock', 'category_id'],
         },
       ],
     });
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Product,
-          attributes: [ 'product_name'],
+          attributes: [ 'product_name', 'price', 'stock', 'category_id'],
         },
       ],
     });
@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.status(500).json(error);
+    res.status(400).json(error);
   }
 });
 
@@ -72,11 +72,11 @@ router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(req.body, {
       where: {
-        id: req.params.id,
+        id: req.params.id
       },
     });
     //If no category found send 404 error message
-    if (!categoryData[0]) {
+    if (!categoryData) {
       res.status(404).json({ message: 'No catergory with this id' });
     }
     res.status(200).json(categoryData);
