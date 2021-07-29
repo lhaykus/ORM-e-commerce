@@ -4,7 +4,7 @@ const { Model, DataTypes, DECIMAL } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model { }
+class Product extends Model {}
 
 // set up fields and rules for Product model
 Product.init(
@@ -26,7 +26,7 @@ Product.init(
     },
     //Creating price to be a decimal, not allow null values and validate that the value is actually a decimal
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false,
       validate: {
         isDecimal: true,

@@ -8,10 +8,18 @@ router.get('/', async (req, res) => {
   try {
     //find all category and include product
     const categoryData = await Category.findAll({
-      include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id']}],
+      attributes: ['id', 'category_name'],
+      include: [
+        {
+          model: Product,
+          attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+        },
+      ],
     });
     res.status(200).json(categoryData);
+
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
@@ -21,10 +29,16 @@ router.get('/:id', async (req, res) => {
   try {
     //find by the id 
     const categoryData = await Category.findByPk(req.params.id, {
-      include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id']}],
+      attributes: ['id', 'category_name'],
+      include: [
+        {
+          model: Product,
+          attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+        },
+      ],
     });
 
-//If there are no catergories that match the id send an error 404 
+    //If there are no catergories that match the id send an error 404 
     if (!categoryData) {
       res.status(404).json({ message: 'No Catergory found with that id' });
       return;
@@ -32,6 +46,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(categoryData);
 
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 
@@ -40,12 +55,13 @@ router.get('/:id', async (req, res) => {
 //CREATE a category
 router.post('/', async (req, res) => {
   try {
-    const newCategory = await Category.create({
+    const categoryData = await Category.create({
       category_name: req.body.category_name
     });
-    res.status(200).json(newCategory);
-    
+    res.status(200).json(categoryData);
+
   } catch (error) {
+    console.log(error);
     res.status(400).json(error);
   }
 });
@@ -61,17 +77,20 @@ router.put('/:id', async (req, res) => {
     });
     //If no category found send 404 error message
     if (!categoryData[0]) {
-      res.status(404).json({ message: 'No catergory with this id'});
+      res.status(404).json({ message: 'No catergory with this id' });
     }
     res.status(200).json(categoryData);
+
+
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
- 
+
 });
 
 //DELETE a catergory by id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   //Delete category where the id the id
   try {
     const categoryData = await Category.destroy({
@@ -81,15 +100,17 @@ router.delete('/:id', (req, res) => {
     });
 
     //If there is no catergory with that id send error 404 message
-    if(!categoryData) {
-      res.status(404).json({ message: 'There is no catergory with that id'});
+    if (!categoryData) {
+      res.status(404).json({ message: 'There is no catergory with that id' });
       return;
     }
     res.status(200).json(categoryData);
-    
+
+
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
-    
+
   }
 
 });

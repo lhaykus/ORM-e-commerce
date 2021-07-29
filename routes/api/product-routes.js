@@ -9,11 +9,22 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category, attributes: ['category_name']}, {model: Tag, attributes: ['id', 'tag_name']}]
+      attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+      include: [
+        {
+          model: Category,
+          attributes: ['category_name', 'id'],
+        },
+        {
+          model: Tag,
+          attributes: ['id', 'tag_name'],
+        },
+      ],
     });
     res.status(200).json(productData);
     
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
@@ -24,8 +35,17 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const productData = await Product.findByPk(req.params.id, {
-      include: [{model: Category, attributes: ['category_name']}, {model: Tag, attributes: ['id', 'tag_name']}]
-    });
+      include: [
+        {
+          model: Category,
+          attributes: ['category_name'],
+        },
+        {
+          model: Tag,
+          attributes: ['id', 'tag_name'],
+        },
+      ],
+   });
 //if there is no product by id send 404 error message
 if (!productData) {
   res.status(404).json({ message: 'There is no product with that id'});
@@ -34,6 +54,7 @@ if (!productData) {
     res.status(200).json(productData);
     
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
     
   }
@@ -126,12 +147,13 @@ router.delete('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-    }),
+    });
     //If no product with that id send error
-    if (!productData) {
+    if(!productData) {
       res.status(404).json({ message: 'There is no product found with that id'});
     }
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
