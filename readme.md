@@ -1,6 +1,13 @@
 # E-Commerce App
 
-An app using Sequelize and Express.js to build back end databases and API requests for an e-commerce site.
+An app using sequelize and express.js to create databases and GET, POST, PUT and DELETE api requests for an e-commerce site
+
+
+## Video Walkthrough
+Youtube: https://youtu.be/INxZSH0aVEk   (best way to view app walkthrough)
+
+
+Google Drive: https://drive.google.com/file/d/19pTz_Jtd2C9PLa36ZAFfZlcQq9SL17Vz/view
 
 
 ## Technology Used
