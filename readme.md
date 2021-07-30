@@ -44,22 +44,22 @@ npm start
 ```
 
 
-## App Walkthrough Gifs
+## App Walkthrough Gifs on Insomnia Core
 
 GET request for getting all products, categories and tags
 
-![getrequests](./assets/getgif.gif)
+![getrequests](./assets/get.gif)
 
 
 
 GET request to get one product, category, and tag using a specific ID
 
-![idgetrequest](./assets/id.gif)
+![idgetrequest](./assets/getid.gif)
 
 
 POST, PUT and DELETE request for categories
 
-![categories](./assets/categories.gif)
+![categories](./assets/cat.gif)
 
 
 POST, PUT, and DELETE requests for products
