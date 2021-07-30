@@ -92,7 +92,7 @@ router.post('/', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
-    });
+    })
 });
 
 // update product

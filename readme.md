@@ -8,10 +8,10 @@ An app using sequelize and express.js to create databases and GET, POST, PUT and
 This video shows how to create databases, seed the data, run the server and then make GET, POST, PUT and DELETE requests for tags, catergories and products
 
 
-Youtube: https://youtu.be/INxZSH0aVEk   (best way to view app walkthrough)
+Youtube: https://youtu.be/LoIRNoH0WOQ  (best way to view app walkthrough)
 
 
-Google Drive: https://drive.google.com/file/d/19pTz_Jtd2C9PLa36ZAFfZlcQq9SL17Vz/view
+Google Drive: https://drive.google.com/file/d/1laWrS2TBiXK4-MEjkt_K3BuJGCvOPa35/view
 
 
 # Technology Used
